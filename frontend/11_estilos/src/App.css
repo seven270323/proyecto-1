@@ -1,0 +1,72 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  .status-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #0e4554;
+  }
+  
+  .actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .todo-section {
+    margin-top: 20px;
+  }
+  
+  .todo-form-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Botones */
+  .wallet-button, .action-button, .submit-button {
+    background-color: #0e4554;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .wallet-button:hover, .action-button:hover, .submit-button:hover {
+    background-color: #083339;
+  }
+  
+  .connect-button {
+    background-color: #0e4554;
+  }
+  
+  .disconnect-button {
+    background-color: #c74f4f;
+  }
+  
+  .todo-input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #0e4554;
+  }
+  
+  .todo-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .no-list-text {
+    font-size: 16px;
+    color: #c74f4f;
+  }
+  

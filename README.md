@@ -112,50 +112,8 @@ brew upgrade sui
 ```
 
 ## Instalación en Windows <a id="windowscli"></a>
-Para la instalación en **Windows** vamos a utilizar **Python**.
 
-> :information_source: ***Importante***: En Widows es necesario utilizar **PowerShell** para ejecutar los comandos. **No** utilices `cmd`.
-
-1. Asegurate de tener instalado **Python** 3.6 o superior. Para esto puedes abrir una terminal y correr el siguiente comando:
-```
-python3 --version
-```
-
-Si el comando anterior arroja un error, es necesario instalar **Python**. Puedes hacerlo desde: [https://www.python.org/](https://www.python.org/).
-
-2. Una vez instalado Python, correr el siguiente comando:
-
-```powershell
-iwr "https://sui.dev/scripts/install_cli.py" -useb | Select-Object -ExpandProperty Content | python3
-```
-> :warning: Si recibes un error como `ModuleNotFoundError: No module named packaging` puedes instalar la herramienta faltante `packaging` usando el comando: 
-> ```powershell
-> pip3 install packaging
-> ```
-
-3. Una vez finalizada la instalación, deberías ver un mensaje diciendo `Execute the following command to update your PATH:`. Y un comando como este:
-
-```powershell
-setx PATH "%PATH%;C:\Users\<your_account_name>\.suicli\bin"
-```
-
-> :warning: **NO EJECUTES ESTE COMANDO**. El uso de las comillas dobles en `%PATH%` puede causar que el valor actual de `PATH` no se expanda correctamente, lo que lleva a la sobrescritura del `PATH` en lugar de su extensión.
-
-Te recomiendo usar el siguiente comando en vez del anterior:
-
-```powershell
-[System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<your_account_name>\.suicli\bin", "User")
-```
-
-> :information_source: Recuerda sustituir `<your_account_name>` con el nombre real de tu cuenta en Windows. Si no sabes cuál es, puedes obtenerlo con el siguiente comando:
-> ```powershell
-> $env:USERNAME
-> ```
-
-4. Finalmente, valida tu instalación corriendo:
-```powershell
-sui help
-```
+Pendiente.
 
 ## Instalación en Linux <a id="linuxcli"></a>
 1. Asegurate de tener instalado **Python** 3.6 o superior. Para esto puedes abrir una terminal y correr el siguiente comando:

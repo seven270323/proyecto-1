@@ -1,4 +1,4 @@
-module aptosz3::referencias {
+module suiz3::referencias {
     use std::debug::print;
 
     fun practica() {

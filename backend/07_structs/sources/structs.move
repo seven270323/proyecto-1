@@ -1,4 +1,4 @@
-module aptosz3::cadenas {
+module suiz3::cadenas {
     use std::debug::print;
     use std::string_utils::debug_string;
     use std::string::{String,utf8};

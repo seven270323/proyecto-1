@@ -1,11 +1,11 @@
-![banner](./recursos/imagenes/banner.png)
-# Primeros pasos en Aptos
+<!-- ![banner](./recursos/imagenes/banner.png) -->
+# Primeros pasos en Sui
 
 ## Introducción
 
-**Aptos** es una red de **Layer-1** segura y con alta escalabilidad. Permite la creación de smart contracts con **Move**, un lenguaje de programación diseñado específicamente para garantizar la seguridad y el control de acceso de los recursos computacionales de esta blockchain.
+**Sui** es una red de **Layer-1** segura y con alta escalabilidad. Permite la creación de smart contracts con **Move**, un lenguaje de programación diseñado específicamente para garantizar la seguridad y el control de acceso de los recursos computacionales de esta blockchain.
 
-Gracias a la ejecución paralela de transacciones mediante su entorno de ejecución **MoveVM**, Aptos tiene la capacidad de procesar **+100,000 TPS** convirtiéndolo en una plataforma preparada para la aceleración de **DApps** a nivel global.
+Gracias a la ejecución paralela de transacciones mediante su entorno de ejecución **MoveVM**, Sui tiene la capacidad de procesar **+100,000 TPS** convirtiéndolo en una plataforma preparada para la aceleración de **DApps** a nivel global.
 
 ## Instalando un editor de código
 
@@ -63,7 +63,7 @@ git config --global user.email nombre@ejemplo.com
 En tu terminal, corre el siguiente comando:
 
 ```sh
-git clone https://github.com/Zona-Tres/aptos-first-steps.git
+git clone https://github.com/Zona-Tres/sui-first-steps.git
 ```
 
 > :information_source: Recuerda que puedes cambiar el directorio donde se clonará el repositorio. Utiliza `cd` para moverte entre los directorios de tu equipo, y `mkdir` para crear uno nuevo. </br></br>
@@ -71,7 +71,7 @@ git clone https://github.com/Zona-Tres/aptos-first-steps.git
 
 Una vez clonado el repositorio, puedes navegar a él:
 ```sh
-cd aptos-first-steps
+cd sui-first-steps
 ```
 
 Para visualizar los contenidos puedes correr el comando:
@@ -85,9 +85,9 @@ Y para abrirlo en el editor de código (en nuestro caso, VS Code), puedes correr
 code .
 ```
 
-## Instalación de la Aptos CLI
+## Instalación de la Sui CLI
 
-Para poder interactuar con los contenidos de los tutoriales, es necesario instalar la **Aptos CLI**.
+Para poder interactuar con los contenidos de los tutoriales, es necesario instalar la **Sui CLI**.
 
 1. [Instalación en Mac](#maccli)
 2. [Instalación en Windows](#windowscli)
@@ -98,17 +98,17 @@ Para poder interactuar con los contenidos de los tutoriales, es necesario instal
 2. Abre una terminal e introduce los siguientes comandos:
 ```sh
 brew update
-brew install aptos
+brew install sui
 ```
-3. Abre otra terminal y ejecuta el comando `aptos help` para verificar que la instalación fue correcta:
+3. Abre otra terminal y ejecuta el comando `sui help` para verificar que la instalación fue correcta:
 ```sh
-aptos help
+sui help
 ```
 ### Actualizar la CLI
 Actualizar la CLI con `brew` requiere de 2 comandos:
 ```sh
 brew update
-brew upgrade aptos
+brew upgrade sui
 ```
 
 ## Instalación en Windows <a id="windowscli"></a>
@@ -126,7 +126,7 @@ Si el comando anterior arroja un error, es necesario instalar **Python**. Puedes
 2. Una vez instalado Python, correr el siguiente comando:
 
 ```powershell
-iwr "https://aptos.dev/scripts/install_cli.py" -useb | Select-Object -ExpandProperty Content | python3
+iwr "https://sui.dev/scripts/install_cli.py" -useb | Select-Object -ExpandProperty Content | python3
 ```
 > :warning: Si recibes un error como `ModuleNotFoundError: No module named packaging` puedes instalar la herramienta faltante `packaging` usando el comando: 
 > ```powershell
@@ -136,7 +136,7 @@ iwr "https://aptos.dev/scripts/install_cli.py" -useb | Select-Object -ExpandProp
 3. Una vez finalizada la instalación, deberías ver un mensaje diciendo `Execute the following command to update your PATH:`. Y un comando como este:
 
 ```powershell
-setx PATH "%PATH%;C:\Users\<your_account_name>\.aptoscli\bin"
+setx PATH "%PATH%;C:\Users\<your_account_name>\.suicli\bin"
 ```
 
 > :warning: **NO EJECUTES ESTE COMANDO**. El uso de las comillas dobles en `%PATH%` puede causar que el valor actual de `PATH` no se expanda correctamente, lo que lleva a la sobrescritura del `PATH` en lugar de su extensión.
@@ -144,7 +144,7 @@ setx PATH "%PATH%;C:\Users\<your_account_name>\.aptoscli\bin"
 Te recomiendo usar el siguiente comando en vez del anterior:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<your_account_name>\.aptoscli\bin", "User")
+[System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<your_account_name>\.suicli\bin", "User")
 ```
 
 > :information_source: Recuerda sustituir `<your_account_name>` con el nombre real de tu cuenta en Windows. Si no sabes cuál es, puedes obtenerlo con el siguiente comando:
@@ -154,7 +154,7 @@ Te recomiendo usar el siguiente comando en vez del anterior:
 
 4. Finalmente, valida tu instalación corriendo:
 ```powershell
-aptos help
+sui help
 ```
 
 ## Instalación en Linux <a id="linuxcli"></a>
@@ -173,7 +173,7 @@ Si en vez de lo anterior, deseas personalizar tu instalación o instalar la vers
 
 2. Una vez instalado Python, correr el siguiente comando:
 ```sh
-curl -fsSL "https://aptos.dev/scripts/install_cli.py" | python3
+curl -fsSL "https://sui.dev/scripts/install_cli.py" | python3
 ```
 > :information_source: Si el comando de arriba da error, es necesario instalar `curl`. Puedes hacerlo con los siguientes comandos:
 > ```sh
@@ -183,7 +183,7 @@ curl -fsSL "https://aptos.dev/scripts/install_cli.py" | python3
 
 3. Verifica la instalación utilizando:
 ```sh
-aptos help
+sui help
 ```
 
 > :information_source: Si el comando de arriba da error, simplemente cierra tu terminal, abrela de nuevo y vuelve a intentar.

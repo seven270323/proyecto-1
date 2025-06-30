@@ -14,12 +14,12 @@ Un `struct` es una estructura de datos definida por el usuario que contiene camp
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Structs
 Running Move unit tests

@@ -1,7 +1,7 @@
-address aptosz3 {
+address suiz3 {
     module tabla {
         use std::debug::print;
-        use aptos_std::table::{Self, Table};
+        use sui_std::table::{Self, Table};
         use std::string::{String,utf8};
         use std::signer::address_of;
 
@@ -41,7 +41,7 @@ address aptosz3 {
             print(&contiene);
 
             // Puedes revisar las demas operaciones de table en la documentacion oficial:
-            // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-stdlib/doc/table.md#0x1_table_add_box
+            // https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/sui-stdlib/doc/table.md#0x1_table_add_box
         }
 
         #[test(cuenta = @0xBEBE)]
@@ -109,7 +109,7 @@ address aptosz3 {
             print(&debug_string(&upsert2));
 
             // Puedes revisar las demas operaciones de simple_map en la documentacion oficial:
-            // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-stdlib/doc/simple_map.md#0x1_simple_map_add
+            // https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/sui-stdlib/doc/simple_map.md#0x1_simple_map_add
         }
 
         #[test(cuenta = @0xBEBE)]

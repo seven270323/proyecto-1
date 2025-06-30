@@ -1,6 +1,6 @@
 # Address
 
-Antes de aprender que es el **almacenamiento global** es necesario entender el tipo `address`. Hasta ahora, hemos estado solamente usando el lenguaje **Move** y ejecutando funciones de manera local, pero no hay que olvidar que el punto es usarlo en conjunto con la blockchain de **Aptos**.
+Antes de aprender que es el **almacenamiento global** es necesario entender el tipo `address`. Hasta ahora, hemos estado solamente usando el lenguaje **Move** y ejecutando funciones de manera local, pero no hay que olvidar que el punto es usarlo en conjunto con la blockchain de **Sui**.
 
 `address` es un identificador único de una ubicación en la blockchain. Se utiliza para identificar paquetes, cuentas y objetos. Una `address` tiene un tamaño fijo de 32 bytes y suele representarse como una cadena hexadecimal con el prefijo `0x`. Las direcciones no distinguen entre mayúsculas y minúsculas.
 
@@ -20,7 +20,7 @@ La dirección anterior es un ejemplo de `address` válida. Tiene 64 caracteres (
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:

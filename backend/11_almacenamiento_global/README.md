@@ -12,12 +12,12 @@ En esta lección aprenderás a utilizar todas las operaciones del Global Storage
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test --named-addresses cuenta=0x5A6F6E612054726573
+sui move test --named-addresses cuenta=0x5A6F6E612054726573
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Almacenamiento Global
 Running Move unit tests
@@ -27,13 +27,13 @@ Test result: OK. Total tests: 0; passed: 0; failed: 0
 }
 ```
 
-Normalmente aquí pararíamos... Pero para esta lección interactuaremos con la Blockchain de Aptos directamente por primera vez.
+Normalmente aquí pararíamos... Pero para esta lección interactuaremos con la Blockchain de Sui directamente por primera vez.
 
-### Inicializando Aptos CLI
+### Inicializando Sui CLI
 Vamos a inicializar este directorio para trabajar con la Blockchain. Primero, corre el siguiente comando en tu terminal:
 
 ```sh
-aptos init
+sui init
 ```
 
 Recibirás el siguiente mensaje:
@@ -55,7 +55,7 @@ Account 0xe0727f9554856401a427fe29f0ab0b27d39e79b7eb7b4081dd68f11426bb5eaf doesn
 Account 0xe0727f9554856401a427fe29f0ab0b27d39e79b7eb7b4081dd68f11426bb5eaf funded successfully
 
 ---
-Aptos CLI is now set up for account 0xe0727f9554856401a427fe29f0ab0b27d39e79b7eb7b4081dd68f11426bb5eaf as profile default!  Run `aptos --help` for more information about commands
+Sui CLI is now set up for account 0xe0727f9554856401a427fe29f0ab0b27d39e79b7eb7b4081dd68f11426bb5eaf as profile default!  Run `sui --help` for more information about commands
 {
   "Result": "Success"
 }
@@ -70,7 +70,7 @@ Lo que acabamos de hacer es crear una nueva cuenta en la Blockchain. En este cas
 Inicialmente la cuenta que creamos tiene algunos tokens ficticios, pero podemos agregar mas, o fondear la cuenta usando un faucet. Para ello corre el siguiente comando:
 
 ```sh
-aptos account fund-with-faucet --account default
+sui account fund-with-faucet --account default
 ```
 
 Recibirás algo similar a esto:
@@ -87,15 +87,15 @@ Algo importante a notar aquí es que acabamos de fondear la cuenta `default`. Da
 Ahora, compilemos el código. Para esto necesitas correr el siguiente comando:
 
 ```sh
-aptos move compile --named-addresses cuenta=default
+sui move compile --named-addresses cuenta=default
 ```
 
 Tu terminal mostrará algo como esto:
 ```
 Compiling, may take a little while to download git dependencies...
-UPDATING GIT DEPENDENCY https://github.com/aptos-labs/aptos-core.git
-UPDATING GIT DEPENDENCY https://github.com/aptos-labs/aptos-core.git
-INCLUDING DEPENDENCY AptosStdlib
+UPDATING GIT DEPENDENCY https://github.com/sui-labs/sui-core.git
+UPDATING GIT DEPENDENCY https://github.com/sui-labs/sui-core.git
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Almacenamiento Global
 {
@@ -119,22 +119,22 @@ module cuenta::almacenamiento_global {
     // ... resto del codigo ...
 }
 ```
-Todos estos cambios son para poder trabajar con la cuenta `default`. En el `Move.toml` dejamos el parametro de cuenta vacía, por lo que al correr el comando `aptos move compile` necesitamos decirle a que cuenta pretendemos publicar este paquete. Es por esto que se lo especificamos con el flag `--named-addresses cuenta=default`, indicándole que use la cuenta `default`, justo la que acabamos de crear.
+Todos estos cambios son para poder trabajar con la cuenta `default`. En el `Move.toml` dejamos el parametro de cuenta vacía, por lo que al correr el comando `sui move compile` necesitamos decirle a que cuenta pretendemos publicar este paquete. Es por esto que se lo especificamos con el flag `--named-addresses cuenta=default`, indicándole que use la cuenta `default`, justo la que acabamos de crear.
 
 ### Publicando el paquete
 
 Vamos a publicar este paquete, corre este comando:
 ```sh
-aptos move publish --named-addresses cuenta=default
+sui move publish --named-addresses cuenta=default
 ```
 
 Obtendrás algo como:
 
 ```sh
 Compiling, may take a little while to download git dependencies...
-UPDATING GIT DEPENDENCY https://github.com/aptos-labs/aptos-core.git
-UPDATING GIT DEPENDENCY https://github.com/aptos-labs/aptos-core.git
-INCLUDING DEPENDENCY AptosStdlib
+UPDATING GIT DEPENDENCY https://github.com/sui-labs/sui-core.git
+UPDATING GIT DEPENDENCY https://github.com/sui-labs/sui-core.git
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Almacenamiento Global
 package size 3038 bytes
@@ -157,7 +157,7 @@ En este momento, la consola te está pidiendo autorización para gastar `gas`, b
   }
 }
 ```
-Este mensaje nos indica que la publicación de nuestro paquete dentro de la red `devnet` en la blockchain de **Aptos** fue exitosa. ¡Felicidades! Acabas de publicar tu primer paquete a la blockchain.
+Este mensaje nos indica que la publicación de nuestro paquete dentro de la red `devnet` en la blockchain de **Sui** fue exitosa. ¡Felicidades! Acabas de publicar tu primer paquete a la blockchain.
 
 Por ahora, lee algo de la teoría y el código, para después interactuar con el paquete que acabas de publicar.
 
@@ -194,7 +194,7 @@ Una vez preparado y publicado tu paquete, vamos a interactuar con él.
 Para usar la primer función de nuestro código, puedes correr:
 
 ```sh
-aptos move run --function-id 'default::almacenamiento_global::publicar' --args u64:1
+sui move run --function-id 'default::almacenamiento_global::publicar' --args u64:1
 ```
 
 En este comando, estamos ejecutando con `run` la función `<cuenta>::<modulo>::<funcion>` y enviando los argumentos que requiere `--args <tipo>:<valor>`.
@@ -228,12 +228,12 @@ Dado a que vamos a escribir a la blockchain, es necesario pagar por el cómputo 
 Vamos a correr el método `obtener_contador`:
 
 ```sh
-aptos move view --function-id 'default::almacenamiento_global::obtener_contador' --args address:0x9ec76cffd7571d19a3abfe8f9721484eb7309fa55bd99722c60f94f5d70c2119
+sui move view --function-id 'default::almacenamiento_global::obtener_contador' --args address:0x9ec76cffd7571d19a3abfe8f9721484eb7309fa55bd99722c60f94f5d70c2119
 ```
 
 > :information_source: Recuerda sustituir el `address` con tu propia `address`. Si no sabes cual es, puedes verla corriendo:
 >```sh
->aptos account lookup-address
+>sui account lookup-address
 >```
 
 Deberías obtener algo como esto:
@@ -248,7 +248,7 @@ Deberías obtener algo como esto:
 
 Lo cual es correcto, el valor que inicializamos fue `1`.
 
-> :warning: Recuerda que estamos corriendo `aptos move view`. Nótese el `view`. Si corres una función de vista usando `aptos move run` obtendrás un error como el siguiente:
+> :warning: Recuerda que estamos corriendo `sui move view`. Nótese el `view`. Si corres una función de vista usando `sui move run` obtendrás un error como el siguiente:
 >```
 >{
 >  "Error": "Simulation failed with status: INVALID_MAIN_FUNCTION_SIGNATURE"
@@ -261,22 +261,22 @@ Puedes probar el programa y ver el funcionamiento del mismo, los comandos son:
 
 `incrementar`
 ```sh
-aptos move run --function-id 'default::almacenamiento_global::incrementar' --args address:<tu_direccion>
+sui move run --function-id 'default::almacenamiento_global::incrementar' --args address:<tu_direccion>
 ```
 
 `restablecer`
 ```sh
-aptos move run --function-id 'default::almacenamiento_global::restablecer'
+sui move run --function-id 'default::almacenamiento_global::restablecer'
 ```
 
 `existe`
 ```sh
-aptos move view --function-id 'default::almacenamiento_global::existe' --args address:<tu_direccion>
+sui move view --function-id 'default::almacenamiento_global::existe' --args address:<tu_direccion>
 ```
 
 `eliminar`
 ```sh
-aptos move run --function-id 'default::almacenamiento_global::eliminar'
+sui move run --function-id 'default::almacenamiento_global::eliminar'
 ```
 
 ## Reto

@@ -10,12 +10,12 @@
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Tipos primitivos
 Running Move unit tests

@@ -1,4 +1,4 @@
-module aptosz3::tipos_primitivos {
+module suiz3::tipos_primitivos {
     use std::debug::print;
 
     fun practica() {

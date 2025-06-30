@@ -3,14 +3,14 @@ name = "Cadenas"
 version = "0.0.0"
 
 [addresses]
-aptosz3 = "0x5A6F6E612054726573"
+suiz3 = "0x5A6F6E612054726573"
 
-[dependencies.AptosStdlib]
-git = 'https://github.com/aptos-labs/aptos-core.git'
+[dependencies.SuiStdlib]
+git = 'https://github.com/sui-labs/sui-core.git'
 rev = 'main'
-subdir = 'aptos-move/framework/aptos-stdlib'
+subdir = 'sui-move/framework/sui-stdlib'
 
 [dependencies.MoveStdlib]
-git = 'https://github.com/aptos-labs/aptos-core.git'
+git = 'https://github.com/sui-labs/sui-core.git'
 rev = 'main'
-subdir = 'aptos-move/framework/move-stdlib'
+subdir = 'sui-move/framework/move-stdlib'

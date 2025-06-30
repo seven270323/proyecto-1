@@ -19,12 +19,12 @@ La constante debe conocerse en el momento de la compilación. El valor de la con
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Variables
 Running Move unit tests
@@ -32,7 +32,7 @@ Running Move unit tests
 [debug] true
 [debug] 1
 [debug] 2
-[debug] "Aptos"
+[debug] "Sui"
 [debug] 0
 [debug] 1
 [debug] 100

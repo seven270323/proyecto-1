@@ -10,12 +10,12 @@
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Colecciones
 Running Move unit tests
@@ -77,4 +77,4 @@ Test result: OK. Total tests: 2; passed: 2; failed: 0
 
 Puedes encontrar la documentación para este tutorial dentro del archivo `sources/colecciones.move`. Cada una de las declaraciones tiene un comentario para ayudarte a entender cada uno de los temas tocados.
 
-> :information_source: Recuerda que puedes encontrar más información sobre las colecciones y sus métodos en la [documentación](https://github.com/aptos-labs/aptos-core/tree/main/aptos-move/framework/aptos-stdlib/doc) oficial del Aptos Core.
+> :information_source: Recuerda que puedes encontrar más información sobre las colecciones y sus métodos en la [documentación](https://github.com/sui-labs/sui-core/tree/main/sui-move/framework/sui-stdlib/doc) oficial del Sui Core.

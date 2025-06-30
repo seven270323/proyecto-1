@@ -6,7 +6,7 @@ Los vectores son una forma nativa de almacenar colecciones de elementos en Move.
 
 Un `vector<T>` puede ser instanciado con cualquier tipo `T`. Por ejemplo, `vector<u64>`, `vector<address>`, `vector<0x1337::mi_modulo::mi_recurso>`, y `vector<vector<u8>>` son todos tipos de vector válidos.
 
-Puedes encontrar más información sobre los vectores y sus métodos en la [documentación oficial](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/vector.md) del Aptos Core.
+Puedes encontrar más información sobre los vectores y sus métodos en la [documentación oficial](https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/vector.md) del Sui Core.
 
 ## Ejecutando el tutorial
 
@@ -18,12 +18,12 @@ Puedes encontrar más información sobre los vectores y sus métodos en la [docu
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Vectores
 Running Move unit tests
@@ -75,7 +75,7 @@ Estas son algunas de las operaciones más comunes utilizadas al trabajar con vec
 |`remove<T>(v: &mut vector<T>, i: u64): T`|Remueve el elemento en el índice `i` del vector `v`, recorriendo los demás elementos. Esta operación es `O(n)` y conserva el orden de los elementos.|Si `i` está fuera de límite|
 |`swap_remove<T>(v: &mut vector<T>, i: u64): T`|Intercambia el elemento en el índice `i` del vector v con el último elemento y luego elimina el último elemento. Esta operación es `O(n)` pero no conserva el orden de los elementos en el vector.|Si `i` está fuera de límite|
 
-> :information_source: Recuerda que puedes ver información sobre el resto de los métodos en la [documentación oficial](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/vector.md) del Aptos Core.
+> :information_source: Recuerda que puedes ver información sobre el resto de los métodos en la [documentación oficial](https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/vector.md) del Sui Core.
 
 ## Leyendo los recursos del tutorial
 

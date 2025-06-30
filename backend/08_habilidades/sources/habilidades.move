@@ -1,4 +1,4 @@
-module aptosz3::habilidades {
+module suiz3::habilidades {
     // drop
     struct Ignorame has drop { a: u8 }
     struct SinDrop { a: u8}

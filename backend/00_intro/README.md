@@ -28,17 +28,17 @@ En los siguientes tutoriales trabajaremos **sólo con módulos**.
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 Running Move unit tests
 [debug] "Hello, World!"
-[ PASS    ] 0x5a6f6e612054726573::practica_aptos::prueba
+[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
 {
   "Result": "Success"
@@ -66,16 +66,16 @@ module direccion::nombre_modulo {
     [addresses]
     introduccion = "0x5A6F6E612054726573"
     ```
-3. Nombre del módulo, en nuestro caso: `practica_aptos`
+3. Nombre del módulo, en nuestro caso: `practica_sui`
 
 Por lo que nuestro código luce así:
 ```rust
-module introduccion::practica_aptos {
+module introduccion::practica_sui {
     // ...  resto del código
 }
 ```
 
-Después, vienen los `imports` o los módulos/librerías que estamos importando para que el nuestro funcione. En nuestro código, estamos importando dos funciones de la librería principal de **Aptos**:
+Después, vienen los `imports` o los módulos/librerías que estamos importando para que el nuestro funcione. En nuestro código, estamos importando dos funciones de la librería principal de **Sui**:
 
 ```rust
     use std::debug::print;
@@ -103,19 +103,19 @@ Y por último, necesitamos una forma de ejecutar esta función. Por ahora lo est
     }
 ```
 
-Al nosotros haber ejecutado `aptos move test` le estamos diciendo a la CLI que ejecute todas las funciones que tengan un bloque `[#test]`, en este caso, ejecuta nuestra función `prueba`, la cual a su vez llama a la función `practica`.
+Al nosotros haber ejecutado `sui move test` le estamos diciendo a la CLI que ejecute todas las funciones que tengan un bloque `[#test]`, en este caso, ejecuta nuestra función `prueba`, la cual a su vez llama a la función `practica`.
 
 ## Output
 
 Por último, analicemos el resultado que se imprimió en la consola.
 
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 Running Move unit tests
 [debug] "Hello, World!"
-[ PASS    ] 0x5a6f6e612054726573::practica_aptos::prueba
+[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
 {
   "Result": "Success"
@@ -125,29 +125,29 @@ Test result: OK. Total tests: 1; passed: 1; failed: 0
 El primer bloque de texto nos indica que está incluyendo las dependencias necesarias para ejecutar el proyecto:
 
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 ```
 
 Estas dependencias las podemos ver en el archivo `Move.toml`:
 ```toml
-[dependencies.AptosStdlib]
-git = 'https://github.com/aptos-labs/aptos-core.git'
+[dependencies.SuiStdlib]
+git = 'https://github.com/sui-labs/sui-core.git'
 rev = 'main'
-subdir = 'aptos-move/framework/aptos-stdlib'
+subdir = 'sui-move/framework/sui-stdlib'
 
 [dependencies.MoveStdlib]
-git = 'https://github.com/aptos-labs/aptos-core.git'
+git = 'https://github.com/sui-labs/sui-core.git'
 rev = 'main'
-subdir = 'aptos-move/framework/move-stdlib'
+subdir = 'sui-move/framework/move-stdlib'
 ```
 
-Cada una de estas dependencias está siendo importada de un repositorio de **Github**, en este caso, el repositorio oficial del **Aptos Core**.
+Cada una de estas dependencias está siendo importada de un repositorio de **Github**, en este caso, el repositorio oficial del **Sui Core**.
 
-> :information_source: Puedes ver el repositorio oficial aquí: [Aptos Core](https://github.com/aptos-labs/aptos-core).
+> :information_source: Puedes ver el repositorio oficial aquí: [Sui Core](https://github.com/sui-labs/sui-core).
 
-La siguiente línea en el output nos indica que se ejecutaran las pruebas unitarias en el archivo, recuerda que esto es porque corrimos el comando `aptos move test`:
+La siguiente línea en el output nos indica que se ejecutaran las pruebas unitarias en el archivo, recuerda que esto es porque corrimos el comando `sui move test`:
 ```
 Running Move unit tests
 ```
@@ -159,7 +159,7 @@ Después, obtenemos el mensaje que ejecuta la función prueba, en nuestro caso, 
 
 Ahora, en la siguiente línea, podemos obtener información de exactamente que funciones se ejecutaron:
 ```sh
-[ PASS    ] 0x5a6f6e612054726573::practica_aptos::prueba
+[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
 ```
 La estructura es algo así:
 ```rust
@@ -178,7 +178,7 @@ Test result: OK. Total tests: 1; passed: 1; failed: 0
 
 ## Reto final
 
-Cómo reto final, modifica la función para que, en vez de mostrar `Hello, World!`, imprima el logo de **Aptos** en arte ASCII:
+Cómo reto final, modifica la función para que, en vez de mostrar `Hello, World!`, imprima el logo de **Sui** en arte ASCII:
 ```ASCII
 MMMMMMMMMMMMMMMMWKkdc;'..          ..';cdkKWMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMWXkl,.                        .,lkXWMMMMMMMMMMMM

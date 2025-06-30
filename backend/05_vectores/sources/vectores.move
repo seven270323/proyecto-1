@@ -1,4 +1,4 @@
-module aptosz3::vectores {
+module suiz3::vectores {
     use std::debug::print;
     use std::vector::{empty, length, borrow, borrow_mut, push_back}; // Solo para crear un vector no es necesario importar la libreria.
     // Pero las operaciones de los vectores (como push, pop_back) si necesitan que la importes.
@@ -29,7 +29,7 @@ module aptosz3::vectores {
         print(borrow(&v3, 3)); // Resultado: [debug] 40
 
         // Recuerda que puedes obtener informacion sobre las demos operaciones en:
-        // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/vector.md
+        // https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/vector.md
     }
 
     #[test]

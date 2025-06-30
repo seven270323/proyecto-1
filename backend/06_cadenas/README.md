@@ -2,7 +2,7 @@
 
 Move no tiene un tipo incorporado para representar cadenas, pero tiene dos implementaciones estándar para cadenas en la Biblioteca Estándar. El módulo `std::string` define un tipo `String` y métodos para cadenas codificadas en `UTF-8`, y el segundo módulo, `std::ascii`, proporciona un tipo `String ASCII` y sus métodos.
 
-Puedes encontrar más información sobre las cadenas y sus métodos en la [documentación oficial](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/string.md) del Aptos Core.
+Puedes encontrar más información sobre las cadenas y sus métodos en la [documentación oficial](https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/string.md) del Sui Core.
 
 ## Ejecutando el tutorial
 
@@ -14,12 +14,12 @@ Puedes encontrar más información sobre las cadenas y sus métodos en la [docum
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Cadenas
 Running Move unit tests
@@ -77,7 +77,7 @@ Las cadenas hexadecimales son literales de cadena entre comillas precedidas de u
 
 Cada par de bytes, de `00` a `FF`, se interpreta como un valor `u8` codificado en hexadecimal. Así, cada par de bytes corresponde a una única entrada en el `vector<u8>` resultante.
 
-> :information_source: Recuerda que puedes encontrar más información sobre las cadenas y sus métodos en la [documentación oficial](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/string.md) del Aptos Core.
+> :information_source: Recuerda que puedes encontrar más información sobre las cadenas y sus métodos en la [documentación oficial](https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/string.md) del Sui Core.
 
 ## Leyendo los recursos del tutorial
 

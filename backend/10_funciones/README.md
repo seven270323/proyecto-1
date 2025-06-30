@@ -12,12 +12,12 @@ Las funciones son los componentes básicos de los programas Move. Se llaman desd
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener algo similar a esto:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Funciones
 Running Move unit tests
@@ -25,7 +25,7 @@ Running Move unit tests
 [debug] 2
 [debug] "Hola desde funciones1!"
 [debug] false
-[debug] "Aptos"
+[debug] "Sui"
 [debug] 0
 [debug] 100
 [debug] "Hola desde funciones1!"

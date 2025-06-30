@@ -1,4 +1,4 @@
-module aptosz3::condicionales {
+module suiz3::condicionales {
     use std::debug::print;
     use std::string::utf8;
 

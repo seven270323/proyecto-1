@@ -1,4 +1,4 @@
-address aptosz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener distintos modulos dentro la misma address.
+address suiz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener distintos modulos dentro la misma address.
     module funciones1 {
         use std::debug::print;
         use std::string::utf8;
@@ -31,11 +31,11 @@ address aptosz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener disti
     }
 
     module funciones2 { // Nuevo modulo!
-        use aptosz3::funciones1::{Self, funcion_publica}; // Usaremos este import para demostrar las distintas maneras de importar un modulo.
+        use suiz3::funciones1::{Self, funcion_publica}; // Usaremos este import para demostrar las distintas maneras de importar un modulo.
 
         fun llamada_externa() {
             // Podemos hacer llamado a funciones publicas:
-            aptosz3::funciones1::funcion_publica(); // Esta forma de llamarla es cuando no importamos la funcion con use
+            suiz3::funciones1::funcion_publica(); // Esta forma de llamarla es cuando no importamos la funcion con use
             funciones1::funcion_publica(); // Esta forma es cuando importamos Self
             funcion_publica(); // Y por ultimo esta s cuando importamos la funcion directamente.
             // Las 3 llamadas son equivalentes, cual utilizar depende de tu caso de uso.
@@ -56,7 +56,7 @@ address aptosz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener disti
         }
 
         fun retorno_multiple(): (vector<u8>, u64) { // Las funciones pueden tener multiples retornos. Es necesario encerrarlos en parentesis.
-            (b"Aptos", 0) // Lo mismo al regresarlos
+            (b"Sui", 0) // Lo mismo al regresarlos
         }
 
         fun retorno_explicito(): u8 { // Como vimos arriba, podemos omitir la palabra return si nuestro codigo evalua a un valor final
@@ -72,7 +72,7 @@ address aptosz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener disti
             parametros(a, 2); // Al enviar parametros, recuerda separarlos con ,
 
             let (nombre, numero) = retorno_multiple(); // Al recibir una funcion con retorno multiple, asignamos nuevas variables para guardar cada valor.
-            print(&utf8(nombre)); // Resultado: [debug] "Aptos"
+            print(&utf8(nombre)); // Resultado: [debug] "Sui"
             print(&numero); // Resultado: [debug] 0
 
             let retorno_explicito = retorno_explicito(); // Habia mencionado que las funciones y variables pueden tener el mismo nombre?
@@ -82,7 +82,7 @@ address aptosz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener disti
 
     module funciones4 {
         public entry fun funcion_entry() { // El modificador entry es esencialmente lo que seria el modificador main en otros lenguajes
-            aptosz3::funciones1::funcion_publica(); // Son funciones que permiten que sean llamadas de manera segura e invocadas directamente.
+            suiz3::funciones1::funcion_publica(); // Son funciones que permiten que sean llamadas de manera segura e invocadas directamente.
 
             // No es un modificador restrictivo. Estas funciones pueden seguir siendo llamadas por otras funciones dentro del modulo.
             // Las funciones entry son las funciones que vamos a poder llamar desde la terminal al momento de subir el codigo a la blockchain.

@@ -1,4 +1,4 @@
-module introduccion::practica_aptos {
+module introduccion::practica_sui {
     use std::debug::print;
     use std::string::utf8;
 

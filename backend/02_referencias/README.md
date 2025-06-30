@@ -12,12 +12,12 @@ Move tiene dos tipos de referencias: inmutables `&` y mutables `&mut`. Las refer
 Ingresa a tu terminal y ejecuta el siguiente comando:
 
 ```sh
-aptos move test
+sui move test
 ```
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY SuiStdlib
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Referencias
 Running Move unit tests

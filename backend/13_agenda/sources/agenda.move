@@ -1,10 +1,10 @@
-/// Modulo de una agenda sencilla utilizado como ejemplo en el programa de certificacion Aptos Developer Backend Expert.
+/// Modulo de una agenda sencilla utilizado como ejemplo en el programa de certificacion Sui Developer Backend Expert.
 /// Las funciones son:
 /// * Crea recursos de Agenda en la cuenta del firmante
 /// * Agrega Registros en la Agenda publicada en la cuenta del firmante
 /// * Elimina y modifica dichos Registros
 module cuenta::agenda {
-    use aptos_std::table::{Self, Table};
+    use sui_std::table::{Self, Table};
     use std::string::String;
     use std::option::{Self, Option, is_some};
     use std::signer::address_of;
@@ -138,7 +138,7 @@ module cuenta::agenda {
 
     /// Modifica el Registro relacionado con el Nombre dado.
     /// Esta funcion no puede ser usada en consola.
-    /// Pero puedes probarla en el explorador: https://explorer.aptoslabs.com/
+    /// Pero puedes probarla en el explorador: https://explorer.suilabs.com/
     public entry fun modificar_registro(
         cuenta: &signer, 
         nombre: String, 

@@ -1,4 +1,4 @@
-module aptosz3::variables {
+module suiz3::variables {
     use std::debug::print;
     use std::string::utf8;
     use std::vector;
@@ -26,9 +26,9 @@ module aptosz3::variables {
         // Pueden comenzar con letras de la a a la z o con guion bajo.
         // Su nombre no puede comenzar con una letra mayuscula (A - Z).
         let _c = 3; // Por lo general usamos _ al inicio del nombre para indicar que es una variable que no sera usada.
-        let una_variable_con_un_nombre_muy_largo = b"Aptos";
+        let una_variable_con_un_nombre_muy_largo = b"Sui";
         let _camelCase = false;
-        print(&utf8(una_variable_con_un_nombre_muy_largo)); // Resultado: [debug] "Aptos"
+        print(&utf8(una_variable_con_un_nombre_muy_largo)); // Resultado: [debug] "Sui"
 
         // Anotaciones de tipo:
         // Puedes especificar el tipo de una variable antes de declararla

@@ -1,7 +1,7 @@
-module aptosz3::cadenas {
+module suiz3::cadenas {
     use std::debug::print;
     use std::string::{utf8, is_empty, append, append_utf8, insert};
-    use aptos_std::string_utils::{to_string, debug_string};
+    use sui_std::string_utils::{to_string, debug_string};
 
     fun practica() {
         // Cadenas
@@ -50,8 +50,8 @@ module aptosz3::cadenas {
         print(&debug_string(&v)); // Resultado: [debug] "[ 10, 20, 30 ]" Nota: No funciona con u8.
 
         // Recuerda que puedes obtener informacion sobre las demos operaciones en:
-        // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/string.md
-        // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-stdlib/doc/string_utils.md
+        // https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/move-stdlib/doc/string.md
+        // https://github.com/sui-labs/sui-core/blob/main/sui-move/framework/sui-stdlib/doc/string_utils.md
     }
 
     #[test]

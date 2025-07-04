@@ -11,7 +11,11 @@
 
 Para este tutorial intalaremos **Visual Studio Code**.
 
-Puedes simplemente descargar el instalador para tu sistema operativo en la [página oficial de Visual Studio](https://code.visualstudio.com/)
+1. Descarga el instalador para tu sistema operativo en la [página oficial de Visual Studio](https://code.visualstudio.com/)
+2. (Opcional) Recomendamos instalar las siguientes extensiones:
+    * [Move (Extension)](https://marketplace.visualstudio.com/items?itemName=mysten.move) es una extensión de servidor de lenguaje para Move mantenida por [Mysten Labs](https://www.mystenlabs.com/).
+    * [Move Formatter](https://marketplace.visualstudio.com/items?itemName=mysten.prettier-move) es un formateador de código para Move, desarrollado y mantenido por Mysten Labs.
+    * [Move Syntax](https://marketplace.visualstudio.com/items?itemName=damirka.move-syntax) una simple extensión de resaltado de sintaxis para Move por [Damir Shamanaev](https://github.com/damirka/).
 
 ## Clonando este repositorio
 
@@ -85,7 +89,7 @@ Y para abrirlo en el editor de código (en nuestro caso, VS Code), puedes correr
 code .
 ```
 
-## Instalación de la Sui CLI
+## 3. Instalación de la Sui CLI
 
 Para poder interactuar con los contenidos de los tutoriales, es necesario instalar la **Sui CLI**.
 
@@ -225,6 +229,29 @@ cargo install --git https://github.com/MystenLabs/sui.git sui --branch devnet
 3. Puedes probar que todo se haya instalado correctamente corriendo:
 ```sh
 sui --version
+```
+
+## 4. Instalación de MVR
+
+**Move Registry** (MVR) es un gestor de paquetes para Move. Permite a cualquiera publicar y utilizar paquetes publicados en nuevas aplicaciones desarrolladas con Move. 
+
+1. Dependiendo de como hayas instalado la `sui` CLI es como instalarás `mvr`.
+
+* Si instalaste `suiup` (sin importar tu sistema operativo), corre el siguiente comando:
+```sh
+suiup install mvr
+```
+
+* Si instalaste `sui` utilizando `cargo`, corre el siguiente comando:
+```sh
+cargo install --locked --git https://github.com/mystenlabs/mvr --branch release mvr
+```
+
+* Por último, si realizaste la instalación de manera manual descargando el instalador y **no** instalaste `suiup`, puedes descargar el instalador de `mvr` desde el [repositorio oficial](https://github.com/MystenLabs/mvr/releases).
+
+2. Sin importar cual opción elegiste, recuerda revisar que la instalación se haya realizado de manera correcta:
+```sh
+mvr --version
 ```
 
 ## Interactuando con el repositorio.

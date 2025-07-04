@@ -1,11 +1,11 @@
-<!-- ![banner](./recursos/imagenes/banner.png) -->
+![banner](./recursos/imagenes/banner.png)
 # Primeros pasos en Sui
 
 ## Introducción
 
-**Sui** es una red de **Layer-1** segura y con alta escalabilidad. Permite la creación de smart contracts con **Move**, un lenguaje de programación diseñado específicamente para garantizar la seguridad y el control de acceso de los recursos computacionales de esta blockchain.
+**Sui** es una plataforma de blockchain y contratos inteligentes de **capa 1** diseñada para que la propiedad de activos digitales sea rápida, privada, segura y accesible.
 
-Gracias a la ejecución paralela de transacciones mediante su entorno de ejecución **MoveVM**, Sui tiene la capacidad de procesar **+100,000 TPS** convirtiéndolo en una plataforma preparada para la aceleración de **DApps** a nivel global.
+**Move** es un lenguaje de código abierto para escribir paquetes seguros para manipular objetos en blockchain. Permite bibliotecas, herramientas y comunidades de desarrolladores comunes en blockchains con modelos de datos y ejecución muy diferentes.
 
 ## Instalando un editor de código
 
@@ -94,57 +94,138 @@ Para poder interactuar con los contenidos de los tutoriales, es necesario instal
 3. [Instalación en Linux](#linuxcli)
 
 ## Instalación en Mac <a id="maccli"></a>
+
+Podemos instalar Sui de dos maneras. Una usando la herramienta desarrollada por MystenLabs `suiup` y otra utilizando Hombrew. La recomendada para dar tus primeros pasos si necesidad de hacer muchas configuraciones es `suiup`, sin embargo, esta herramienta no se debe utilizar para entornos productivos. Vamos a explorar ambas opciones.
+
+### `suiup`
+
+* Ejecuta el siguiente comando en tu terminal:
+```sh
+curl -sSfL https://raw.githubusercontent.com/Mystenlabs/suiup/main/install.sh | sh
+```
+
+* Ó puedes descargar los binarios e instalarlo manualmente directamente desde el [repositorio oficial de `suiup`](https://github.com/Mystenlabs/suiup/releases). Esta opción es algo más avanzada por lo que si nunca haz instalado algo de forma similar, recomendamos usar el comando de arriba.
+
+> :information_source: Si no sabes que arquitectura tienes puedes correr el siguiente comando:
+> ```sh
+> uname -m
+> ```
+> * Si dice **arm64** → Descarga suiup-macOS-arm64.tar.gz.
+> * Si dice **x86_64** → Descarga suiup-macOS-x86_64.tar.gz.
+
+1. Puedes probar que la instalación de `suiup` se realizó de manera correcta corriendo el siguiente comando:
+```sh
+suiup --version
+```
+
+2. Una vez que instales `suiup`, sin importar cual opción escogiste, ejecuta el siguiente comando para instalar la Sui CLI:
+```sh
+suiup install sui
+```
+
+3. Y de nuevo, puedes probar que todo salió bien usando:
+```sh
+sui --version
+```
+
+### Hombrew
+
 1. Asegurate de tener **Homebrew** instalado: [https://brew.sh/](https://brew.sh/).
 2. Abre una terminal e introduce los siguientes comandos:
 ```sh
 brew update
 brew install sui
 ```
-3. Abre otra terminal y ejecuta el comando `sui help` para verificar que la instalación fue correcta:
+3. Puedes probar que todo se haya instalado correctamente corriendo:
 ```sh
-sui help
-```
-### Actualizar la CLI
-Actualizar la CLI con `brew` requiere de 2 comandos:
-```sh
-brew update
-brew upgrade sui
+sui --version
 ```
 
 ## Instalación en Windows <a id="windowscli"></a>
 
-Pendiente.
+Podemos instalar Sui de dos maneras. Una usando la herramienta desarrollada por MystenLabs `suiup` y otra utilizando un administrador de paquetes como **Chocolatey**. La recomendada para dar tus primeros pasos si necesidad de hacer muchas configuraciones es `suiup`, sin embargo, esta herramienta no se debe utilizar para entornos productivos. Vamos a explorar ambas opciones.
+
+### `suiup`
+
+1. Descarga el instalador directamente desde el [repositorio oficial de `suiup`](https://github.com/Mystenlabs/suiup/releases).
+
+> :information_source: Si no sabes que arquitectura tienes simplemente descarga el archivo `suiup-Windows-msvc-x86_64.zip`.
+
+2. Una vez instalado, abre una terminal y corre el siguiente comando para verificar que todo salió bien:
+```sh
+suiup --version
+```
+> :information_source: Recomendamos usar Powershell como terminal para ejecutar todos los comandos de este repositorio en Windows.
+
+3. Una vez que instales `suiup` ejecuta el siguiente comando para instalar la Sui CLI:
+```sh
+suiup install sui
+```
+
+4. Y de nuevo, puedes probar que todo salió bien usando:
+```sh
+sui --version
+```
+
+### `choco`
+
+1. Asegurate de tener **Chocolatey** instalado: [https://chocolatey.org/install](https://chocolatey.org/install).
+2. Abre una terminal e introduce el siguiente comando:
+```sh
+choco install sui
+```
+3. Puedes probar que todo se haya instalado correctamente corriendo:
+```sh
+sui --version
+```
 
 ## Instalación en Linux <a id="linuxcli"></a>
-1. Asegurate de tener instalado **Python** 3.6 o superior. Para esto puedes abrir una terminal y correr el siguiente comando:
-```
-python3 --version
-```
 
-Si el comando anterior arroja un error, es necesario instalar **Python**. Si estás usando Ubuntu, y sólo quieres instalar la versión necesaria para este Bootcamp, puedes correr los siguientes comandos:
+Podemos instalar Sui de dos maneras. Una usando la herramienta desarrollada por MystenLabs `suiup` y otra utilizando el administrador de paquetes para **Rust** llamado `cargo`. La recomendada para dar tus primeros pasos si necesidad de hacer muchas configuraciones es `suiup`, sin embargo, esta herramienta no se debe utilizar para entornos productivos. Vamos a explorar ambas opciones.
+
+### `suiup`
+
+* Ejecuta el siguiente comando en tu terminal:
 ```sh
-sudo apt update
-sudo apt install python3.6
+curl -sSfL https://raw.githubusercontent.com/Mystenlabs/suiup/main/install.sh | sh
 ```
 
-Si en vez de lo anterior, deseas personalizar tu instalación o instalar la versión más reciente de Python, puedes hacerlo desde la página oficial: [https://www.python.org/](https://www.python.org/).
+* Ó puedes descargar los binarios e instalarlo manualmente directamente desde el [repositorio oficial de `suiup`](https://github.com/Mystenlabs/suiup/releases). Esta opción es algo más avanzada por lo que si nunca haz instalado algo de forma similar, recomendamos usar el comando de arriba.
 
-2. Una vez instalado Python, correr el siguiente comando:
-```sh
-curl -fsSL "https://sui.dev/scripts/install_cli.py" | python3
-```
-> :information_source: Si el comando de arriba da error, es necesario instalar `curl`. Puedes hacerlo con los siguientes comandos:
+> :information_source: Si no sabes que arquitectura tienes puedes correr el siguiente comando:
 > ```sh
-> sudo apt update
-> sudo apt install curl
->```
+> uname -m
+> ```
+> * Si dice **arm64** → Descarga `suiup-Linux-musl-arm64.tar.gz`.
+> * Si dice **x86_64** → Descarga `suiup-Linux-musl-x86_64.tar.gz`.
 
-3. Verifica la instalación utilizando:
+1. Puedes probar que la instalación de `suiup` se realizó de manera correcta corriendo el siguiente comando:
 ```sh
-sui help
+suiup --version
 ```
 
-> :information_source: Si el comando de arriba da error, simplemente cierra tu terminal, abrela de nuevo y vuelve a intentar.
+2. Una vez que instales `suiup`, sin importar cual opción escogiste, ejecuta el siguiente comando para instalar la Sui CLI:
+```sh
+suiup install sui
+```
+
+3. Y de nuevo, puedes probar que todo salió bien usando:
+```sh
+sui --version
+```
+
+### `cargo`
+
+1. Asegurate de tener `rustup` instalado: [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
+2. Abre una terminal e introduce los siguientes comandos:
+```sh
+rustup update stable
+cargo install --git https://github.com/MystenLabs/sui.git sui --branch devnet
+```
+3. Puedes probar que todo se haya instalado correctamente corriendo:
+```sh
+sui --version
+```
 
 ## Interactuando con el repositorio.
 

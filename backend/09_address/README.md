@@ -43,7 +43,7 @@ Para distinguir cuando una dirección se utiliza en un contexto de expresión o 
 
 ### Direcciones nombradas
 
-Las direcciones nombradas son una característica que permite utilizar identificadores en lugar de valores numéricos en cualquier lugar donde se utilicen direcciones, y no sólo a nivel de valor. Las direcciones nombradas se declaran y vinculan como elementos de nivel superior (fuera de módulos y scripts) en los paquetes Move, o se pasan como argumentos al compilador Move.
+Las direcciones nombradas son una característica que permite utilizar identificadores en lugar de valores numéricos en cualquier lugar donde se utilicen direcciones, y no sólo a nivel de valor. Las direcciones nombradas se declaran y vinculan como elementos de nivel superior (fuera de módulos y paquetes) en los paquetes Move, o se pasan como argumentos al compilador Move.
 
 Las direcciones nombradas sólo existen en el nivel de lenguaje fuente y serán sustituidas completamente por su valor en el nivel de código de bytes. Debido a esto, se debe acceder a los módulos y a los miembros de los módulos __a través de la dirección nombradas del módulo y no a través del valor numérico__ asignado a la dirección nombradas durante la compilación, por ejemplo, usar `mi_direccion::foo` no es equivalente a usar `0x2::foo` incluso si el programa Move se compila con `mi_direccion` establecida en `0x2`.
 

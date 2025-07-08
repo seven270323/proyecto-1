@@ -17,7 +17,9 @@ sui move test
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Referencias
 Running Move unit tests
@@ -28,11 +30,8 @@ Running Move unit tests
 [debug] 1
 [debug] 20
 [debug] 20
-[ PASS    ] 0x5a6f6e612054726573::referencias::prueba
+[ PASS    ] suiz3::referencias::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ## Tutorial

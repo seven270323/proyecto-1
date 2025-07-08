@@ -89,7 +89,7 @@ address suiz3 { // Ahora usamos una nueva sintaxis, ya que vamos a tener distint
             // Las funciones entry NO pueden regresar un valor.
         }
 
-        #[view] // Por ultimo, podemos tener funciones de lectura, se asignan con #view.
+        #[ext(view)] // Por ultimo, podemos tener funciones de lectura, se asignan con #view.
         public fun funcion_lectura(): u16 { // Estas funciones tambien pueden ser llamadas desde la terminal.
             200 // Las funciones view deben regresar un valor
             // Dentro de este contexto no tienen mucho sentido, pero las tocaremos en la siguiente leccion.

@@ -19,22 +19,26 @@ sui move test
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Structs
 Running Move unit tests
-[debug] "0x5a6f6e612054726573::cadenas::Autor {
-  nombre: \"Paulo Cohelo\"
-}"
-[debug] "0x5a6f6e612054726573::cadenas::Libro {
-  titulo: \"El Alquimista\",
+[debug] 0x5a6f6e612054726573::cadenas::Autor {
+  nombre: "Paulo Cohelo"
+}
+[debug] 0x5a6f6e612054726573::cadenas::Libro {
+  titulo: "El Alquimista",
   autor: 0x5a6f6e612054726573::cadenas::Autor {
-    nombre: \"Paulo Cohelo\"
+    nombre: "Paulo Cohelo"
   },
   publicado: 1988,
   tiene_audiolibro: true,
-  edicion: Some(1)
-}"
+  edicion: 0x1::option::Option<u16> {
+    vec: [ 1 ]
+  }
+}
 [debug] "El Alquimista"
 [debug] "Paulo Cohelo"
 [debug] 1988
@@ -46,14 +50,11 @@ Running Move unit tests
 [debug] "Edgar Allan Poe"
 [debug] "George Orwell"
 [debug] "Charles Dickens"
-[debug] "0x5a6f6e612054726573::cadenas::Autor {
-  nombre: \"Charles Dickens\"
-}"
-[ PASS    ] 0x5a6f6e612054726573::cadenas::prueba
-Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
+[debug] 0x5a6f6e612054726573::cadenas::Autor {
+  nombre: "Charles Dickens"
 }
+[ PASS    ] suiz3::cadenas::prueba
+Test result: OK. Total tests: 1; passed: 1; failed: 0
 ```
 
 ## Tutorial

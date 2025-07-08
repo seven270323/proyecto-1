@@ -17,28 +17,28 @@ sui move test
 
 Deberías de obtener algo similar a esto:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Funciones
 Running Move unit tests
 [debug] 1
 [debug] 2
 [debug] "Hola desde funciones1!"
-[debug] false
+[debug] "Hola desde funciones1!"
+[debug] "Hola desde funciones1!"
 [debug] "Sui"
+[debug] "Hola desde funciones1!"
 [debug] 0
+[debug] false
+[debug] 200
+[ PASS    ] suiz3::funciones2::prueba
 [debug] 100
-[debug] "Hola desde funciones1!"
-[debug] "Hola desde funciones1!"
-[debug] "Hola desde funciones1!"
-[ PASS    ] 0x5a6f6e612054726573::funciones1::prueba
-[ PASS    ] 0x5a6f6e612054726573::funciones4::prueba
-[ PASS    ] 0x5a6f6e612054726573::funciones3::prueba
-[ PASS    ] 0x5a6f6e612054726573::funciones2::prueba
+[ PASS    ] suiz3::funciones1::prueba
+[ PASS    ] suiz3::funciones4::prueba
+[ PASS    ] suiz3::funciones3::prueba
 Test result: OK. Total tests: 4; passed: 4; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ## Tutorial

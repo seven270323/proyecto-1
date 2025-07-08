@@ -5,9 +5,9 @@ Las variables locales en Move tienen un `scope` léxico (estático). Las nuevas 
 
 
 ### Constantes
-Las constantes son una forma de dar un nombre a valores estáticos compartidos dentro de un `module` o `script`.
+Las constantes son una forma de dar un nombre a valores estáticos compartidos dentro de un `module`.
 
-La constante debe conocerse en el momento de la compilación. El valor de la constante se almacena en el `module` o `script` compilado. Y cada vez que se utiliza la constante, se hace una nueva copia de ese valor.
+La constante debe conocerse en el momento de la compilación. El valor de la constante se almacena en el `module` compilado. Y cada vez que se utiliza la constante, se hace una nueva copia de ese valor.
 
 ## Ejecutando el tutorial
 
@@ -24,7 +24,9 @@ sui move test
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Variables
 Running Move unit tests
@@ -39,11 +41,8 @@ Running Move unit tests
 [debug] 10
 [debug] 15
 [debug] false
-[ PASS    ] 0x5a6f6e612054726573::variables::prueba
+[ PASS    ] suiz3::variables::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ## Leyendo los recursos del tutorial

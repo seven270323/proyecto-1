@@ -1,22 +1,22 @@
 # Introducción
 
-## Módulos y Scripts
+## Módulos y Paquetes
 
-**Move** tiene dos tipos diferentes de programas: Módulos y Scripts. 
+**Move** en Sui tiene dos tipos diferentes de programas: Módulos y Paquetes. 
 
-Los módulos son librerías que definen structs (`struct`) junto con funciones (`fun`) que operan sobre estos. Los structs definen el esquema del `global storage` de **Move**, y las funciones de los módulos definen las reglas para actualizar el almacenamiento. Los propios módulos también se guardan en el `global storage`. 
+Move es un lenguaje para escribir contratos inteligentes, programas que se almacenan y ejecutan en la blockchain. Un programa se organiza en un paquete. Un paquete se publica en la blockchain y se identifica mediante una dirección. Se puede interactuar con un paquete publicado enviando transacciones que llamen a sus funciones. También puede actuar como dependencia de otros paquetes.
 
-Los scripts son puntos de entrada ejecutables similares a una función `main` en un lenguaje convencional. Un script suele llamar a funciones de un módulo publicado que realizan actualizaciones del `global storage`. Los scripts son fragmentos de código efímeros que no se publican en el `global storage`.
+Un módulo es la unidad base de organización del código en Move. Los módulos se utilizan para agrupar y aislar código, y todos los miembros del módulo son privados para el módulo por defecto.
 
-Un archivo **Move** (o unidad de compilación) puede contener múltiples módulos y scripts. Sin embargo, publicar un módulo o ejecutar un script son operaciones VM independientes.
+En esta sección aprenderás cómo definir un módulo, declarar sus miembros y acceder a él desde otros módulos.
 
 Módulo:
 * Contiene funciones y tipos.
 
-Script:
-* Ejecuta funciones de un Módulo.
+Paquete:
+* Conjunto de módulos.
 
-En los siguientes tutoriales trabajaremos **sólo con módulos**.
+En los siguientes tutoriales trabajaremos la mayor parte del tiempo **sólo con módulos**.
 
 ## Ejecutando el tutorial
 
@@ -33,16 +33,15 @@ sui move test
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 Running Move unit tests
 [debug] "Hello, World!"
-[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
+[ PASS    ] introduccion::practica_sui::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ¡Felicidades! :partying_face: Acabas de ejecutar de manera exitosa tu primer módulo Move. Ahora, analicemos que está pasando.
@@ -110,42 +109,29 @@ Al nosotros haber ejecutado `sui move test` le estamos diciendo a la CLI que eje
 Por último, analicemos el resultado que se imprimió en la consola.
 
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 Running Move unit tests
 [debug] "Hello, World!"
-[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
+[ PASS    ] introduccion::practica_sui::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 El primer bloque de texto nos indica que está incluyendo las dependencias necesarias para ejecutar el proyecto:
 
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Intro
 ```
 
-Estas dependencias las podemos ver en el archivo `Move.toml`:
-```toml
-[dependencies.SuiStdlib]
-git = 'https://github.com/sui-labs/sui-core.git'
-rev = 'main'
-subdir = 'sui-move/framework/sui-stdlib'
-
-[dependencies.MoveStdlib]
-git = 'https://github.com/sui-labs/sui-core.git'
-rev = 'main'
-subdir = 'sui-move/framework/move-stdlib'
-```
-
-Cada una de estas dependencias está siendo importada de un repositorio de **Github**, en este caso, el repositorio oficial del **Sui Core**.
-
-> :information_source: Puedes ver el repositorio oficial aquí: [Sui Core](https://github.com/sui-labs/sui-core).
+Estas dependencias son las dependencias básicas que todo paquete en **Move** necesita, así que el compilador las importa de manera automática.
+Puedes comprobar que no estamos importando ninguna dependencia en el archivo `Move.toml` en el apartado `[dependencies]`.
 
 La siguiente línea en el output nos indica que se ejecutaran las pruebas unitarias en el archivo, recuerda que esto es porque corrimos el comando `sui move test`:
 ```
@@ -159,7 +145,7 @@ Después, obtenemos el mensaje que ejecuta la función prueba, en nuestro caso, 
 
 Ahora, en la siguiente línea, podemos obtener información de exactamente que funciones se ejecutaron:
 ```sh
-[ PASS    ] 0x5a6f6e612054726573::practica_sui::prueba
+[ PASS    ] introduccion::practica_sui::prueba
 ```
 La estructura es algo así:
 ```rust
@@ -171,45 +157,67 @@ Por último, obtenemos información sobre las pruebas unitarias, cómo cuantas s
 
 ```sh
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ## Reto final
 
 Cómo reto final, modifica la función para que, en vez de mostrar `Hello, World!`, imprima el logo de **Sui** en arte ASCII:
 ```ASCII
-MMMMMMMMMMMMMMMMWKkdc;'..          ..';cdkKWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMWXkl,.                        .,lkXWMMMMMMMMMMMM
-MMMMMMMMMMXk:.                                .ckXMMMMMMMMMM
-MMMMMMMWKo'                               ...    'oKWMMMMMMM
-MMMMMMXo.                               .:OX0l.    .oXMMMMMM
-MMMMMNd;;;,;;,,,,,,,,,,,,,,,,,,,;;;,,,;lOWMMMW0l;,;;:dXMMMMM
-MMMMMWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMMMMMMMMMWWWWWWWMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNKXWMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx,.'oXMMMMMMMMMMMMMMMMMMMM
-N0kkkkkkkkkkkkkkkkkkkkkkkkkkkkkko,     'okkkkkkkkkkkkkkkkk0N
-x.                                                        .x
-;                              .;;.                        ;
-.                           .cx0WW0c.                      .
-olllllllllllllllllllllllllld0WMMMMMW0olllllllllllllllllllllo
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMXkkXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMXd'  'xXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-koollloolllllllllollc'      'clllllllllllllllllllllllllllllx
-l                                                          c
-0'                 .cl;                                   '0
-Wx.              .oKWMNk,                                .xW
-MW0xxxxxxxxxxxxxkXWMMMMMNOkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk0WM
-MMMMMMMMMMMMWWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMXd;,l0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMWKd,    .lOKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKXWMMMMMMM
-MMMMMMMNx'        ................................;kNMMMMMMM
-MMMMMMMMWKd,.                                  .,dKWMMMMMMMM
-MMMMMMMMMMMN0o,.                            .,o0NMMMMMMMMMMM
-MMMMMMMMMMMMMMWKxl;..                  ..;lxKWMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWKko:'.          .';okKWMMMMMMMMMMMMMMMMMM
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+================================================:..:================================================
+===============================================......-==============================================
+=============================================-..    ..:=============================================
+============================================....    ....============================================
+==========================================-..............:==========================================
+=========================================.......:==:.......=========================================
+=======================================-.......-====-.......:=======================================
+======================================:.    .:========:.    ..-=====================================
+====================================-.......:==========-.......:====================================
+===================================.........=============:... ...===================================
+=================================-.........================..   ..:=================================
+================================....    ..:=================:.......================================
+==============================-.....    ..:==================-.......:==============================
+=============================:............:====================:.......=============================
+===========================-.......-.......=====================-.......-===========================
+==========================-.......==:......-======================:.... .-==========================
+=========================-......:====.......-======================-......-=========================
+=========================......:=====-.......:======================-......=========================
+========================:......=======-... ....:=====================:.....:========================
+========================......-=========.........:-===================......========================
+=======================-    ..===========-..........:-================:.    :=======================
+=======================:    .:=============-...........:==============-.    :=======================
+=======================:    .:================:.....    ..-===========-.    .=======================
+=======================:    .:==================-:..    ...:==========:.    :=======================
+=======================-.  ...=====================-:...    .:========..    :=======================
+========================......-=======================:.    ...=======..    -=======================
+========================:.. ...=========================........=====.......========================
+=========================......:=========================:......:===:......-========================
+=========================-......:=========================.......-=:......:=========================
+==========================:.    ..-=======================-.    ....    .:==========================
+===========================:.......:=======================.    ........:===========================
+============================-...    ..=====================:        ...-============================
+==============================:.    ....:-================-.        ..==============================
+================================:...    .....::------::.....    ....================================
+==================================:.    ....................    .:-=================================
+====================================-:........................:-====================================
+========================================-:................:-========================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
+====================================================================================================
 ```
 
 > :information_source: Recuerda guardar tus cambios en el archivo para posteriormente hacerles `push` a tu repositorio de **Github**.

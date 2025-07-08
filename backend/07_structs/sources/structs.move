@@ -1,6 +1,5 @@
 module suiz3::cadenas {
     use std::debug::print;
-    use std::string_utils::debug_string;
     use std::string::{String,utf8};
     use std::option::{Option, some};
 
@@ -20,7 +19,7 @@ module suiz3::cadenas {
     fun practica() {
         
         let autor = Autor { nombre: utf8(b"Paulo Cohelo") };
-        print(&debug_string(&autor)); // Nota que usamos debug_string de la leccion anterior para imprimir el struct completo.
+        print(&autor); // Nota que usamos debug_string de la leccion anterior para imprimir el struct completo.
         // Resultado:
         // [debug] "0x5a6f6e612054726573::cadenas::Autor {
         //   nombre: \"Paulo Cohelo\"
@@ -34,7 +33,7 @@ module suiz3::cadenas {
             edicion: some(1), // O dejar que el compilador lo infiera
         }; // Tenemos que cerrar el bloque aqui.
 
-        print(&debug_string(&libro)); // Nota la impresion del campo Autor.
+        print(&libro); // Nota la impresion del campo Autor.
         //[debug] "0x5a6f6e612054726573::cadenas::Libro {
         //  titulo: \"El Alquimista\",
         //  autor: 0x5a6f6e612054726573::cadenas::Autor {
@@ -87,7 +86,7 @@ module suiz3::cadenas {
         let modificable = &mut autor.nombre;
         *modificable = utf8(b"Charles Dickens"); // Y podemos modificarla
         print(modificable); // Resultado: [debug] "Charles Dickens"
-        print(&debug_string(&autor)); // Estamos haciendo una referencia al valor directamente, por lo que:
+        print(&autor); // Estamos haciendo una referencia al valor directamente, por lo que:
         // Resultado:
         // [debug] "0x5a6f6e612054726573::cadenas::Autor {
         //   nombre: \"Charles Dickens\"

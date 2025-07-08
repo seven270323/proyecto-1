@@ -13,7 +13,8 @@ module suiz3::variables {
     fun practica() {
         // Haciendo uso de constantes:
         print(&utf8(SALUDO)); // Resultado: [debug] "Hola, Mundo!"
-        print(&Valor_verdadero); // Resultado: [debug] true
+        let copia_valor_verdadero = Valor_verdadero; // Copia del valor verdadero para evitar el warning por ownership.
+        print(&copia_valor_verdadero); // Resultado: [debug] true
 
         // Declarando varables:
         let a = 1; // Las variables en Move se declaran con let

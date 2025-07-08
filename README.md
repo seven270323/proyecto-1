@@ -55,12 +55,11 @@ sudo apt install git-all
 
 Es buena idea configurar los valores globales de tu usuario antes de comenzar a utilizar Git. Puedes hacerlo con los siguientes comandos.
 
+> :information_source: Recuerda sustituir los ejemplos con tus datos personales.
 ```sh
 git config --global user.name "Nombre Ejemplo"
 git config --global user.email nombre@ejemplo.com
 ```
-
-> :information_source: Recuerda sustituir los ejemplos con tus datos personales.
 
 ## 3. Clonando el repositorio de manera local
 
@@ -254,7 +253,7 @@ cargo install --locked --git https://github.com/mystenlabs/mvr --branch release 
 mvr --version
 ```
 
-## Interactuando con el repositorio.
+## 5. Interactuando con el repositorio.
 
 El repositorio está compuesto de varias carpetas con archivos para cada tutorial, simplemente navega a ellas usando `cd` y sigue las instrucciones dentro.</br></br>
 Cada tutorial cuenta con un archivo `README.md` con instrucciones claras de cómo interactuar con ellos.

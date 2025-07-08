@@ -15,7 +15,9 @@ sui move test
 
 Deberías de obtener el siguiente resultado:
 ```sh
-INCLUDING DEPENDENCY SuiStdlib
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING Tipos primitivos
 Running Move unit tests
@@ -29,11 +31,8 @@ Running Move unit tests
 [debug] false
 [debug] true
 [debug] false
-[ PASS    ] 0x5a6f6e612054726573::tipos_primitivos::prueba
+[ PASS    ] suiz3::tipos_primitivos::prueba
 Test result: OK. Total tests: 1; passed: 1; failed: 0
-{
-  "Result": "Success"
-}
 ```
 
 ## Tutorial

@@ -2,7 +2,6 @@
 module 0x5A6F6E612054726573::address { // No esta dentro de una expresion, por lo que no es necesario @
 
     use std::debug::print; // Cuando importamos usando use en realidad std es una direccion nombrada
-    use 0x1::signer::Self; // 0x1 es la direccion a la que hace referencia std
 
     fun practica_address() {
         let a1: address = @0x1; // version corta de 0x00000000000000000000000000000001

@@ -83,12 +83,12 @@ Puedes acceder al faucet directamente desde acá: https://faucet.sui.io/
 A veces es necesario cambiar el ambiente con el que configuramos inicialmente la CLI. Vamos a agregar el ambiente de `devnet` y cambiarnos a él. Primero es necesario agregarlo a nuestra configuración. Puedes hacerlo de con este comando:
 
 ```sh
-sui client new-env --alias devnet --rpc https://fullnode.devnet.sui.io:443
+sui client new-env --alias mainnet --rpc https://fullnode.mainnet.sui.io:443
 ```
 
 Ahora, necesitamos cambiarnos a este ambiente. Hazlo de la siguiente manera:
 ```sh
-sui client switch --env devnet 
+sui client switch --env mainnet 
 ```
 
 Recuerda que si no tienes tokens es necesario fondear la cuenta. Para `devnet` puedes hacerlo directamente con el comando:
